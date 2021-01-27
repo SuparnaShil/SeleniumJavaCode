@@ -24,6 +24,17 @@ public class AssertTestInShort {
 		
 		//total count of check box
 		Assert.assertEquals(driver.findElements(By.cssSelector("input[type='checkbox']")).size(),6);
+		
+		System.out.println(driver.findElement(By.id("Div1")).getAttribute("Style"));  // check style before click  display: block; opacity: 0.5;
+		//System.out.println(driver.findElement(By.id("ctl00_mainContent_view_date2")).isEnabled());  output will true because it is active and opacity is low thats why it looks inactive
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+		//System.out.println(driver.findElement(By.id("ctl00_mainContent_view_date2")).isEnabled());  also true
+		//driver.findElement(By.id("ctl00_mainContent_view_date2")).isEnabled();
+		
+		System.out.println(driver.findElement(By.id("Div1")).getAttribute("Style"));   // check style after click   display: block; opacity: 1;
+		
+		if (driver.findElement(By.id("Div1")).getAttribute("Style").contains("1")) Assert.assertTrue(true);
+		else Assert.assertFalse(false);
 
 	}
 
